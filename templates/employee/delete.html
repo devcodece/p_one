@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete Employee{% endblock title %}
+
+{% block content %}
+{% include 'includes/header.html' %}
+<div class="grid-container">
+    <div class="grid-x">
+        <div class="cell">
+            <h2 class="text-center">Delete Employee</h2>
+            <h4>{{ object.first_name }} {{ object.last_name }}</h4>
+        </div>
+        <div class="cell">
+            <form method="post">
+                {% csrf_token %}
+                <div class="callout secundary">
+                    <h5>Are you sure to delete this record?</h5>
+                    <button type="submit" class="alert button">Confirm!</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

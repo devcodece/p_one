@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+<body>
+    <h2>Prueba de ListView</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>title</th>
+                <th>subtitle</th>
+                <th>quantity</th>
+            </tr>
+        </thead>
+        {% for item in list %}
+        <tbody>
+            <tr>
+                <td>{{ item.title }}</td>
+                <td>{{ item.subtitle }}</td>
+                <td>{{ item.quantity }}</td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+</body>
+</html>

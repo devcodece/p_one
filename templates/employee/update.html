@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block title %}Edit Employee{% endblock title %}
+{% block content %}
+    {% include 'includes/header.html' %}
+    <br>
+<div class="grid-container">
+    <div class="grid-x">
+        <div class="cell">
+            <h2 class="text-center">Update Employee</h2>
+        </div>
+        <div class="cell">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="grid-container">
+                    <div class="grid-x grid-padding-x">
+                        <div class="medium-2 cell"></div>
+                        <div class="medium-4 cell">
+                            <label>
+                                First Name:
+                                {{form.first_name}}
+                            </label>
+                        </div>
+                        <div class="medium-4 cell">
+                            <label>
+                                Last Name:
+                                {{form.last_name}}
+                            </label>
+                        </div>
+                        <div class="medium-2 cell"></div>
+                        <div class="medium-2 cell"></div>
+                        <div class="medium-4 cell">
+                            <label>
+                                Job:
+                                {{form.job}}
+                            </label>
+                        </div>
+                        <div class="medium-4 cell">
+                            <label>
+                                Department:
+                                {{form.department}}
+                            </label>
+                        </div>
+                        <div class="medium-2 cell"></div>
+                        <div class="medium-2 cell"></div>
+                        <div class="medium-4 cell">
+                            <label>
+                                First Skills:
+                                {{form.skill}}
+                            </label>
+                        </div>
+                        <div class="medium-4 cell"></div>
+                        <div class="medium-2 cell"></div>
+                        <div class="medium-2 cell"></div>
+                        <div class="medium-4 cell">
+                            <label>
+                                Avatar:
+                                {{form.avatar}}
+                            </label>
+                        </div>
+                        <div class="medium-4 cell"></div>
+                        <div class="medium-2 cell"></div>
+                        <div class="medium-4 cell"></div>
+                        <div class="medium-4 cell">
+                            <button type="submit" class="success button expanded">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

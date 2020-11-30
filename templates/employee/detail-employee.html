@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ object.first_name }} {{ object.last_name }}{% endblock title %}
+{% block content %}
+<div class="grid-container">
+    <div class="grid-x grid-margin-x align-center">
+        <div class="cell large-4 card" style="width: 300px;">
+            <div class="card-divider">
+                {{ employee.get_job_display }}
+            </div>
+            {% if employee.avatar %}
+            <img src="{{ employee.avatar.url }}">
+            {% else %}
+            <img src="{% static 'img/no_avatar.png' %}">
+            {% endif %}
+
+            <div class="card-section">
+                <h4>{{ employee.first_name }}  {{ employee.last_name }}</h4>
+                <p>{{ employee.full_name }}</p>
+                <p>{{ employee.department.short_name }}</p>
+                <p><span class="label">Skills:</span>
+                    <ul>
+                        {% for h in employee.skill.all %}
+                        <li>{{ h.skill }}</li>
+                        {% endfor %}
+                    </ul>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vistas basadas en Clases</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+</head>
+<body>
+    <div class="container">
+        <hr>
+        <h2 class="text-center">Vistas basadas en clases - Filtros y Metodo GET</h2>
+        <hr>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <form class="form-inline my-2 my-lg-0" method="GET">
+                    {% csrf_token %}
+                    <input class="form-control mr-sm-2" name="kword" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        <hr>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Job</th>
+                    <th scope="col">Department</th>
+                    <th scope="col">Skill</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for e in employees %}
+                <tr>
+                    <th scope="row">{{ e.id }}</th>
+                    <td>{{ e.first_name }} {{ e.last_name }}</td>
+                    <td>{{ e.job }}</td>
+                    <td>{{ e.department }}</td>
+                    <td>{{ e.skill }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script src="{% static 'bootstrap/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/popper.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

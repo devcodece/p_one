@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %} list departments {% endblock title %}
+{% block content %}
+    {% include 'includes/header.html' %}
+    <br>
+<div class="grid-container">
+    <div class="grid-x">
+        <h3 class="cell">List Departments</h3>
+        <div class="cell">
+            <table>
+                <tbody>
+                    {% for dep in departments %}
+                    <tr>
+                        <td>{{ dep.name }}</td>
+                        <td>{{ dep.short_name }} </td>
+                        <td>
+                            <a href="{% url 'list-by-area' dep.short_name %}" class="button warning">See employees</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
